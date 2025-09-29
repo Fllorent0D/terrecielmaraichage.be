@@ -17,6 +17,7 @@ var gulp         = require('gulp'),
 		dist: {
 			html:   'dist/',
 			js:     'dist/js/',
+			jsLib:  'dist/js/lib/',
 			style:  'dist/css/',
 			img:    'dist/img/',
 			fonts:  'dist/fonts/'
@@ -24,6 +25,7 @@ var gulp         = require('gulp'),
 		src: {
 			html:  ['src/html/**/*.html','!src/html/template/*.html'],
 			js:    ['src/js/lib/device.js', 'src/js/lib/jquery-2.2.4.js', 'src/js/main.js'],
+			jsLib: 'src/js/lib/**/*.js',
 			style:  'src/style/main.scss',
 			img:    'src/img/**/*.*',
 			fonts:  'src/fonts/**/*.*'
@@ -69,6 +71,13 @@ gulp.task('js:build', function ()
 		.pipe(gulp.dest(path.dist.js));
 });
 
+gulp.task('jslib:build', function ()
+{
+	return gulp.src(path.src.jsLib)
+		.pipe(changed(path.dist.jsLib))
+		.pipe(gulp.dest(path.dist.jsLib));
+});
+
 gulp.task('style:build', function ()
 {
 	return gulp.src(path.src.style)
@@ -111,6 +120,13 @@ gulp.task('js:dev', function ()
 		.pipe(gulp.dest(path.dist.js));
 });
 
+gulp.task('jslib:dev', function ()
+{
+	return gulp.src(path.src.jsLib)
+		.pipe(changed(path.dist.jsLib))
+		.pipe(gulp.dest(path.dist.jsLib));
+});
+
 gulp.task('style:dev', function ()
 {
 	return gulp.src(path.src.style)
@@ -139,6 +155,7 @@ gulp.task('image:dev', function ()
 gulp.task('build', gulp.series(
 	'html:build',
 	'js:build',
+	'jslib:build',
 	'style:build',
 	'fonts:build',
 	'image:build'
@@ -148,6 +165,7 @@ gulp.task('dev', gulp.series(
 	'clean',
 	'html:build',
 	'js:dev',
+	'jslib:dev',
 	'style:dev',
 	'fonts:build',
 	'image:dev'
@@ -167,7 +185,7 @@ gulp.task('watch', function (_cb)
 	});
 	watch(path.watch.js, function(event, cb)
 	{
-		gulp.series('js:dev')(cb);
+		gulp.series('js:dev', 'jslib:dev')(cb);
 	});
 	watch(path.watch.img, function(event, cb)
 	{
