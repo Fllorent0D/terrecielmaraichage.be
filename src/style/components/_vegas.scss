@@ -1,0 +1,321 @@
+// Vegas Slider Styles
+.vegas-overlay, .vegas-slide, .vegas-slide-inner, .vegas-timer, .vegas-wrapper {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	overflow: hidden;
+	border: none;
+	padding: 0;
+	margin: 0;
+}
+
+.vegas-overlay {
+	opacity: 0.5;
+	background: url(overlays/02.png) center center;
+}
+
+.vegas-timer {
+	top: auto;
+	bottom: 0;
+	height: 2px;
+}
+
+.vegas-timer-progress {
+	width: 0;
+	height: 100%;
+	background: #fff;
+	transition: width ease-out;
+}
+
+.vegas-timer-running .vegas-timer-progress {
+	width: 100%;
+}
+
+.vegas-slide, .vegas-slide-inner {
+	margin: 0;
+	padding: 0;
+	background: center center no-repeat;
+	transform: translateZ(0);
+}
+
+body .vegas-container {
+	overflow: hidden !important;
+	position: relative;
+}
+
+.vegas-video {
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+}
+
+body.vegas-container {
+	overflow: auto;
+	position: static;
+	z-index: -2;
+}
+
+body.vegas-container > .vegas-overlay,
+body.vegas-container > .vegas-slide,
+body.vegas-container > .vegas-timer {
+	position: fixed;
+	z-index: -1;
+}
+
+// Transitions
+.vegas-transition-fade, .vegas-transition-fade2 {
+	opacity: 0;
+}
+
+.vegas-transition-fade-in, .vegas-transition-fade2-in {
+	opacity: 1;
+}
+
+.vegas-transition-fade2-out {
+	opacity: 0;
+}
+
+// Animations
+.vegas-animation-kenburns {
+	animation: kenburns ease-out;
+}
+
+@keyframes kenburns {
+	0% {
+		transform: scale(1.5);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+// Custom Vegas Controls
+#vegas-slider {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100% !important;
+}
+
+#vegas-slider .vegas-control__btn {
+	position: absolute;
+	top: 50%;
+	line-height: 1;
+	font-size: 1.5rem;
+	font-weight: 700;
+	font-family: 'Poppins', sans-serif;
+	color: #fff;
+	text-transform: uppercase;
+	cursor: pointer;
+	padding: 5px;
+	transform: rotate(-90deg);
+	transition: color 0.3s ease-in-out;
+	z-index: 3;
+}
+
+#vegas-slider .vegas-control__btn:hover {
+	color: #f1cf69;
+}
+
+#vegas-control__prev {
+	left: -10px;
+}
+
+#vegas-control__next {
+	right: -10px;
+}
+
+#vegas-slider .vegas-dots {
+	position: absolute;
+	left: 0;
+	bottom: 20px;
+	width: 100%;
+	line-height: 0;
+	text-align: center;
+	z-index: 3;
+}
+
+#vegas-slider .vegas-dots a {
+	display: inline-block;
+	vertical-align: top;
+	width: 15px;
+	height: 15px;
+	margin: 0 5px;
+	cursor: pointer;
+	background-color: #f1cf69;
+	box-shadow: 0 0 0 0 #4a8b71 inset;
+	border-radius: 50%;
+	transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+#vegas-slider .vegas-dots a:hover,
+#vegas-slider .vegas-dots a.active {
+	box-shadow: 0 0 0 8px #4a8b71 inset;
+}
+
+#vegas-slider .vegas-dots a.active {
+	cursor: default;
+}
+
+#start-screen_content-container {
+	position: relative;
+	height: 100%;
+}
+
+.start-screen__content {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 100%;
+	padding-top: 100px;
+	padding-bottom: 50px;
+	visibility: hidden;
+	opacity: 0;
+	text-align: center;
+	color: #fff;
+	transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.start-screen__content.active {
+	position: relative;
+	top: auto;
+	left: auto;
+	right: auto;
+	visibility: visible;
+	opacity: 1;
+	transition: opacity 0.5s ease-in-out 0.2s, visibility 0.3s ease-in-out;
+}
+
+.start-screen__content .title,
+.start-screen__content .subtitle {
+	font-family: 'Poppins', sans-serif;
+	text-transform: uppercase;
+}
+
+.start-screen__content .title {
+	line-height: 1;
+	font-size: 45px;
+	font-weight: 700;
+	letter-spacing: 5px;
+	margin-bottom: 0;
+}
+
+.start-screen__content .subtitle {
+	line-height: 1.2;
+	font-size: 18px;
+	font-weight: 300;
+	letter-spacing: 20px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.start-screen__content p {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.start-screen__content p:first-child {
+	margin-top: 0;
+}
+
+.start-screen__content p:last-child {
+	margin-bottom: 0;
+}
+
+.start-screen__content .custom-btn.primary {
+	background-color: #f1cf69;
+	color: #504935;
+}
+
+.start-screen__content .custom-btn.primary:hover,
+.start-screen__content .custom-btn.primary:focus {
+	background-color: #444;
+	border-color: #444;
+	color: #fff;
+}
+
+.start-screen__content-third .title {
+	color: #282828;
+}
+
+// Responsive breakpoints
+@media only screen and (min-width: 576px) {
+	#vegas-control__prev {
+		left: 0px;
+	}
+
+	#vegas-control__next {
+		right: 0px;
+	}
+
+	.start-screen__content {
+		text-align: inherit;
+	}
+
+	.start-screen__content .title {
+		line-height: 0.8;
+		font-size: 80px;
+		letter-spacing: 10px;
+	}
+
+	.start-screen__content .subtitle {
+		font-size: 20px;
+	}
+
+	.start-screen__content p {
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+
+	.start-screen__content-third .title {
+		line-height: 0.6;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	#vegas-slider .vegas-dots {
+		bottom: 30px;
+	}
+
+	.start-screen__content {
+		padding-top: 120px;
+		padding-bottom: 80px;
+	}
+
+	.start-screen__content .title {
+		font-size: 110px;
+		letter-spacing: 15px;
+	}
+
+	.start-screen__content .subtitle {
+		font-size: 25px;
+	}
+}
+
+@media only screen and (min-width: 992px) {
+	#vegas-slider .vegas-dots {
+		bottom: 40px;
+	}
+
+	.start-screen__content {
+		padding-top: 120px;
+		padding-bottom: 120px;
+	}
+
+	.start-screen__content .title {
+		font-size: 130px;
+		letter-spacing: 20px;
+	}
+}
+
+@media only screen and (min-width: 1200px) {
+	.start-screen__content .title {
+		font-size: 150px;
+		letter-spacing: 30px;
+	}
+}

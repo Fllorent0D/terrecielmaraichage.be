@@ -1,0 +1,88 @@
+/* --------------------------------
+   sections
+-------------------------------- */
+
+.section {
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+  &--no-pt {
+    padding-top: 0;
+  }
+
+  &--background-base {
+    background-color: $primary-color;
+  }
+
+  &--background-base-light {
+    background-color: $primary-color-light;
+  }
+
+  &--with-border {
+    border-top: 1px solid #e9e9e9;
+    padding-top: 59px;
+  }
+
+  @include min-screen($md-width) {
+    padding-top: 80px;
+    padding-bottom: 80px;
+
+    &--screen {
+      min-height: calc(100vh - 80px);
+    }
+
+    &--with-border {
+      padding-top: 79px;
+    }
+  }
+
+  @include min-screen($lg-width) {
+    padding-top: 100px;
+    padding-bottom: 100px;
+
+    &--with-border {
+      padding-top: 99px;
+    }
+  }
+}
+
+.section--custom-1 {
+  height: 20vh;
+
+  @include min-screen($md-width) {
+    // all width image
+    background: url(/img/img10.jpeg) no-repeat center center;
+    background-size: cover;
+  }
+
+  @include min-screen($xl-width) {
+    background-size: cover;
+  }
+}
+
+.section--custom-2 {
+  .img-place {
+    @extend %bg-cover;
+  }
+
+  @include max-screen($lg-width - 1) {
+    background-image: none;
+  }
+
+  @include min-screen($lg-width) {
+    .img-place {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      bottom: 0;
+      right: 0;
+      margin-left: 15px;
+    }
+  }
+}
+
+// Background logo section (if needed)
+.section--background-logo {
+  // Add any specific logo background styling here if needed
+}
+
