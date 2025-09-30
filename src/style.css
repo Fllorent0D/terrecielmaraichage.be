@@ -2,6 +2,102 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+/* CSS Variables for Theme Support */
+:root {
+  /* Light theme colors */
+  --bg-primary: #FFFCF5;
+  --bg-secondary: #f8f9fa;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --text-muted: #a7a7a7;
+  --border-color: #e9e9e9;
+  --card-bg: #ffffff;
+  --nav-bg: rgba(255, 255, 255, 0.1);
+  --nav-text: rgba(255, 255, 255, 0.9);
+  --nav-text-scrolled: rgba(75, 85, 99, 0.9);
+}
+
+[data-theme="dark"] {
+  /* Dark theme colors */
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2d2d2d;
+  --text-primary: #ffffff;
+  --text-secondary: #cccccc;
+  --text-muted: #999999;
+  --border-color: #404040;
+  --card-bg: #2a2a2a;
+  --nav-bg: rgba(0, 0, 0, 0.3);
+  --nav-text: rgba(255, 255, 255, 0.9);
+  --nav-text-scrolled: rgba(255, 255, 255, 0.9);
+}
+
+/* Apply theme variables to body and main elements */
+body {
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark theme specific styles */
+[data-theme="dark"] .section--background-base-light {
+  background-color: var(--bg-secondary) !important;
+}
+
+[data-theme="dark"] .bg-white {
+  background-color: var(--card-bg) !important;
+}
+
+[data-theme="dark"] .text-gray-900 {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .text-gray-600 {
+  color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .text-gray-500 {
+  color: var(--text-muted) !important;
+}
+
+[data-theme="dark"] .border-gray-200,
+[data-theme="dark"] .border-gray-300 {
+  border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .shadow-lg,
+[data-theme="dark"] .shadow-md {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2) !important;
+}
+
+[data-theme="dark"] .text-gray-800 {
+  color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .border-l-4 {
+  border-left-color: #017637 !important;
+}
+
+/* Dark theme navigation styles */
+[data-theme="dark"] #navbar {
+  background-color: var(--nav-bg) !important;
+  backdrop-filter: blur(12px);
+}
+
+[data-theme="dark"] #navbar .mobile-nav-link {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] #navbar .mobile-nav-link:hover {
+  color: #017637 !important;
+  background-color: rgba(1, 118, 55, 0.1) !important;
+}
+
+/* Dark theme for mobile menu background */
+[data-theme="dark"] #mobile-menu .bg-white {
+  background-color: var(--card-bg) !important;
+  border-color: var(--border-color) !important;
+}
+
 /* Original theme typography */
 .h1, h1, .h2, h2, .h3, h3 {
   line-height: 1.1;
@@ -10,7 +106,7 @@
 .h1, h1, .h2, h2, .h3, h3, .h4, h4 {
   font-weight: 700;
   font-family: 'Poppins', sans-serif;
-  color: #333;
+  color: var(--text-primary);
   transition: color 0.3s ease-in-out;
 }
 
@@ -291,7 +387,7 @@
 }
 
 #navbar .nav-link {
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--nav-text);
   transition: color 0.3s ease-in-out;
 }
 
@@ -301,7 +397,7 @@
 }
 
 #navbar.navbar-scrolled .nav-link {
-  color: rgba(75, 85, 99, 0.9);
+  color: var(--nav-text-scrolled);
 }
 
 #navbar.navbar-scrolled .nav-link:hover,
@@ -414,6 +510,18 @@
 
   .back-to-top-btn.visible {
     @apply opacity-100 pointer-events-auto;
+  }
+
+  .theme-toggle-nav {
+    @apply w-10 h-10 flex items-center justify-center;
+  }
+
+  .theme-toggle-nav-mobile {
+    @apply w-6 h-6;
+  }
+
+  [data-theme="dark"] .theme-toggle-nav:hover {
+    @apply bg-gray-700;
   }
 
   .slider-dot {

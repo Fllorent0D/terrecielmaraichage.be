@@ -1,45 +1,20 @@
 export class Navigation {
   private navbar: HTMLElement | null
-  private mobileMenuButton: HTMLElement | null
-  private mobileMenu: HTMLElement | null
   private navLinks: NodeListOf<HTMLAnchorElement>
 
   constructor() {
     this.navbar = document.getElementById('navbar')
-    this.mobileMenuButton = document.getElementById('mobile-menu-button')
-    this.mobileMenu = document.getElementById('mobile-menu')
     this.navLinks = document.querySelectorAll('a[href^="#"]')
 
     this.init()
   }
 
   private init(): void {
-    this.setupMobileMenu()
     this.setupSmoothScrolling()
     this.setupScrollSpy()
     this.setupNavbarScroll()
   }
 
-  private setupMobileMenu(): void {
-    this.mobileMenuButton?.addEventListener('click', () => {
-      this.toggleMobileMenu()
-    })
-
-    // Close mobile menu when clicking on a link
-    this.mobileMenu?.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        this.closeMobileMenu()
-      })
-    })
-  }
-
-  private toggleMobileMenu(): void {
-    this.mobileMenu?.classList.toggle('hidden')
-  }
-
-  private closeMobileMenu(): void {
-    this.mobileMenu?.classList.add('hidden')
-  }
 
   private setupSmoothScrolling(): void {
     this.navLinks.forEach(link => {
