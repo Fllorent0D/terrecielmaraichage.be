@@ -14,10 +14,10 @@
   transition: color 0.3s ease-in-out;
 }
 
-.h1, h1 { font-size: 2.8125rem; margin: 25px 0; }
-.h2, h2 { font-size: 2.1875rem; margin: 20px 0; }
-.h3, h3 { font-size: 1.25rem; margin: 20px 0; }
-.h4, h4 { font-size: 1rem; font-weight: 500; margin: 15px 0; }
+.h1, h1 { font-size: 2.8125rem; margin: 15px 0; }
+.h2, h2 { font-size: 2.1875rem; margin: 15px 0; }
+.h3, h3 { font-size: 1.25rem; margin: 12px 0; }
+.h4, h4 { font-size: 1rem; font-weight: 500; margin: 10px 0; }
 
 /* Original theme buttons */
 .custom-btn {
@@ -87,8 +87,8 @@
   color: #a7a7a7;
   width: 100%;
   max-width: 600px;
-  padding-top: 97px;
-  margin-bottom: 55px;
+  padding-top: 30px;
+  margin-bottom: 30px;
 }
 
 .section-heading:first-child {
@@ -451,8 +451,8 @@
 
 /* Section Background Styles */
 .section {
-  padding-top: 60px;
-  padding-bottom: 60px;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
 .section .container {
@@ -475,6 +475,50 @@
 .section--with-border {
   border-top: 1px solid #e9e9e9;
   padding-top: 59px;
+}
+
+/* Mobile-specific spacing optimizations */
+@media (max-width: 767px) {
+  .section {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  .section-heading {
+    padding-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .h1, h1 { font-size: 2.2rem; margin: 10px 0; }
+  .h2, h2 { font-size: 1.8rem; margin: 10px 0; }
+  .h3, h3 { font-size: 1.2rem; margin: 8px 0; }
+  .h4, h4 { font-size: 1rem; margin: 8px 0; }
+
+  /* Optimize container spacing on mobile */
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Reduce grid gaps on mobile */
+  .grid {
+    gap: 1rem;
+  }
+
+  /* Optimize feature grid spacing */
+  .feature__inner .grid {
+    gap: 1.5rem;
+  }
+
+  /* Markets section optimization */
+  #markets .grid {
+    gap: 1.5rem;
+  }
+
+  /* Contact section optimization */
+  #contact .grid {
+    gap: 2rem;
+  }
 }
 
 @media (min-width: 768px) {
@@ -505,6 +549,15 @@
 
 .section--custom-1 {
   height: 20vh;
+  background: url(/img/img10.jpeg) no-repeat center center;
+  background-size: cover;
+}
+
+/* Hide custom-1 section on mobile to eliminate empty space */
+@media (max-width: 767px) {
+  .section--custom-1 {
+    display: none;
+  }
 }
 
 @media (min-width: 768px) {
