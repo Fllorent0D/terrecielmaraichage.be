@@ -40,7 +40,7 @@ body {
 
 /* Dark theme specific styles */
 [data-theme="dark"] .section--background-base-light {
-  background-color: var(--bg-secondary) !important;
+  background-color: #252525 !important;
 }
 
 [data-theme="dark"] .bg-white {
@@ -96,6 +96,22 @@ body {
 [data-theme="dark"] #mobile-menu .bg-white {
   background-color: var(--card-bg) !important;
   border-color: var(--border-color) !important;
+}
+
+/* Mobile menu styling - compact size, not full screen */
+#mobile-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+#mobile-menu .bg-white {
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 /* Original theme typography */
@@ -439,6 +455,80 @@ body {
   color: #FFFCF5 !important;
 }
 
+/* Mobile controls styling - clean icons only */
+#mobile-controls button {
+  color: white !important;
+  transition: color 0.3s ease-in-out;
+}
+
+#mobile-controls button:hover {
+  color: white !important;
+}
+
+/* Scrolled navbar state - mobile controls go to black */
+#navbar.navbar-scrolled #mobile-controls button {
+  color: #000 !important;
+}
+
+#navbar.navbar-scrolled #mobile-controls button:hover {
+  color: #000 !important;
+}
+
+/* Dark theme mobile controls styling - always white */
+[data-theme="dark"] #mobile-controls button {
+  color: white !important;
+}
+
+[data-theme="dark"] #mobile-controls button:hover {
+  color: white !important;
+}
+
+/* Dark theme overrides scrolled state */
+[data-theme="dark"] #navbar.navbar-scrolled #mobile-controls button {
+  color: white !important;
+}
+
+[data-theme="dark"] #navbar.navbar-scrolled #mobile-controls button:hover {
+  color: white !important;
+}
+
+/* Desktop theme toggle styling - same behavior as mobile */
+#theme-toggle-desktop {
+  color: white !important;
+  transition: color 0.3s ease-in-out;
+}
+
+#theme-toggle-desktop:hover {
+  color: white !important;
+}
+
+/* Scrolled navbar state - desktop theme toggle goes to black */
+#navbar.navbar-scrolled #theme-toggle-desktop {
+  color: #000 !important;
+}
+
+#navbar.navbar-scrolled #theme-toggle-desktop:hover {
+  color: #000 !important;
+}
+
+/* Dark theme desktop theme toggle styling - always white */
+[data-theme="dark"] #theme-toggle-desktop {
+  color: white !important;
+}
+
+[data-theme="dark"] #theme-toggle-desktop:hover {
+  color: white !important;
+}
+
+/* Dark theme overrides scrolled state for desktop */
+[data-theme="dark"] #navbar.navbar-scrolled #theme-toggle-desktop {
+  color: white !important;
+}
+
+[data-theme="dark"] #navbar.navbar-scrolled #theme-toggle-desktop:hover {
+  color: white !important;
+}
+
 /* Logo consistent styling - no scroll effects */
 #navbar img {
   filter: none;
@@ -577,7 +667,7 @@ body {
 }
 
 .section--background-base-light {
-  background-color: #f8f9fa;
+  background-color: #f1f3f4;
 }
 
 .section--with-border {
@@ -626,6 +716,17 @@ body {
   /* Contact section optimization */
   #contact .grid {
     gap: 2rem;
+  }
+
+  /* Mobile contact button styling for better spacing and appearance */
+  .section--custom-2 .custom-btn {
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+    padding: 18px 15px 16px;
+    font-size: 0.875rem;
   }
 }
 

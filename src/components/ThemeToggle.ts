@@ -17,7 +17,6 @@ export class ThemeToggle {
   private createToggleButton(): void {
     // Find the desktop navigation container
     const desktopNav = document.querySelector('#navbar .hidden.md\\:flex');
-    const mobileMenu = document.querySelector('#mobile-menu .space-y-1');
 
     if (desktopNav) {
       // Create desktop toggle button
@@ -29,28 +28,12 @@ export class ThemeToggle {
 
       // Add to the very end (most right) of the navbar
       desktopNav.appendChild(desktopButton);
-
     }
 
-    if (mobileMenu) {
-      // Create mobile toggle button
-      const mobileButton = document.createElement('button');
-      mobileButton.id = 'theme-toggle-mobile';
-      mobileButton.className = 'theme-toggle-nav-mobile mobile-nav-link flex items-center space-x-2';
-      mobileButton.setAttribute('aria-label', 'Toggle dark theme');
-
-      const iconContainer = document.createElement('span');
-      iconContainer.innerHTML = this.getSunIcon();
-      const textSpan = document.createElement('span');
-      textSpan.textContent = 'Theme';
-
-      mobileButton.appendChild(iconContainer);
-      mobileButton.appendChild(textSpan);
-
-      mobileMenu.appendChild(mobileButton);
-
-      // Add event listener for mobile button too
-      mobileButton.addEventListener('click', () => {
+    // The mobile theme toggle is now directly in the HTML, so we just need to add event listeners
+    const mobileNavButton = document.getElementById('theme-toggle-mobile-nav');
+    if (mobileNavButton) {
+      mobileNavButton.addEventListener('click', () => {
         this.toggleTheme();
       });
     }
@@ -87,7 +70,7 @@ export class ThemeToggle {
   private applyTheme(theme: string): void {
     const html = document.documentElement;
     const desktopButton = document.getElementById('theme-toggle-desktop');
-    const mobileButton = document.getElementById('theme-toggle-mobile');
+    const mobileNavButton = document.getElementById('theme-toggle-mobile-nav');
 
     if (theme === 'dark') {
       html.setAttribute('data-theme', 'dark');
@@ -97,12 +80,9 @@ export class ThemeToggle {
         desktopButton.setAttribute('aria-label', 'Switch to light theme');
       }
 
-      if (mobileButton) {
-        const iconContainer = mobileButton.querySelector('span');
-        if (iconContainer) {
-          iconContainer.innerHTML = this.getMoonIcon();
-        }
-        mobileButton.setAttribute('aria-label', 'Switch to light theme');
+      if (mobileNavButton) {
+        mobileNavButton.innerHTML = this.getMoonIcon();
+        mobileNavButton.setAttribute('aria-label', 'Switch to light theme');
       }
     } else {
       html.removeAttribute('data-theme');
@@ -112,12 +92,9 @@ export class ThemeToggle {
         desktopButton.setAttribute('aria-label', 'Switch to dark theme');
       }
 
-      if (mobileButton) {
-        const iconContainer = mobileButton.querySelector('span');
-        if (iconContainer) {
-          iconContainer.innerHTML = this.getSunIcon();
-        }
-        mobileButton.setAttribute('aria-label', 'Switch to dark theme');
+      if (mobileNavButton) {
+        mobileNavButton.innerHTML = this.getSunIcon();
+        mobileNavButton.setAttribute('aria-label', 'Switch to dark theme');
       }
     }
 
@@ -132,7 +109,7 @@ export class ThemeToggle {
 
   private bindEvents(): void {
     const desktopButton = document.getElementById('theme-toggle-desktop');
-    const mobileButton = document.getElementById('theme-toggle-mobile');
+    const mobileNavButton = document.getElementById('theme-toggle-mobile-nav');
 
     // Desktop button events
     if (desktopButton) {
@@ -148,9 +125,9 @@ export class ThemeToggle {
       });
     }
 
-    // Mobile button events (already bound in createToggleButton, but add keyboard support)
-    if (mobileButton) {
-      mobileButton.addEventListener('keydown', (e) => {
+    // Mobile navigation button events (already bound in createToggleButton, but add keyboard support)
+    if (mobileNavButton) {
+      mobileNavButton.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
           this.toggleTheme();

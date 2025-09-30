@@ -52,16 +52,30 @@
             Commander
           </a>
 
-          <!-- Mobile Menu Button -->
-          <button class="md:hidden p-2 rounded-md text-gray-600 hover:text-primary-600 hover:bg-gray-100 transition-colors" 
-                  id="mobile-menu-button"
-                  aria-label="Ouvrir le menu de navigation"
-                  aria-expanded="false"
-                  aria-controls="mobile-menu">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-          </button>
+          <!-- Mobile Controls Group -->
+          <div class="md:hidden flex items-center space-x-2" id="mobile-controls">
+            <!-- Theme Toggle Button -->
+            <button class="p-2 rounded-md transition-colors"
+                    id="theme-toggle-mobile-nav"
+                    aria-label="Toggle dark theme">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+                </path>
+              </svg>
+            </button>
+
+            <!-- Mobile Menu Button -->
+            <button class="p-2 rounded-md transition-colors"
+                    id="mobile-menu-button"
+                    aria-label="Ouvrir le menu de navigation"
+                    aria-expanded="false"
+                    aria-controls="mobile-menu">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+              </svg>
+            </button>
+          </div>
 
           <!-- Desktop Navigation -->
           <div class="hidden md:flex items-center space-x-8" role="menubar">
@@ -270,7 +284,7 @@
         <div class="section-heading section-heading--center mb-6 md:mb-12">
           <h2 id="markets-heading" class="title text-3xl md:text-4xl font-bold text-gray-900 mb-4 md:mb-6">Nos marchés</h2>
           <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-            3 lieux et des horaires pour répondre au mieux à vos besoins et à vos agendas.
+            Trois lieux et des horaires pour répondre au mieux à vos besoins et à vos agendas.
           </p>
 
         </div>
@@ -355,10 +369,10 @@
         <div class="max-w-4xl mx-auto">
           <div class="text-center mb-12">
             <p class="text-lg text-gray-600 mb-8">
-              Vous pourrez accéder aux ventes hebdomadaires de Terre & Ciel, Maraîchage après vous être inscrit.
+              Inscrivez-vous pour profiter chaque semaine des ventes de <em>Terre & Ciel, Maraîchage</em>.
             </p>
 
-            <h3 class="text-xl font-semibold text-gray-900 mb-8">Rendez-vous proposés pour la récupération des commandes</h3>
+            <h3 class="text-xl font-semibold text-gray-900 mb-8">Retrait des commandes</h3>
 
             <div class="bg-white rounded-lg shadow-lg p-8 border-l-4 border-primary-600 text-left">
               <p class="text-xl font-bold text-primary-600 mb-6">Tous les vendredis de 14h00 à 18h00</p>
@@ -371,7 +385,7 @@
               </div>
               
               <p class="text-gray-600 italic mb-6">
-                Commande à venir récupérer pendant l'après-midi de vente sur le marché de Wanze.
+                Commande à retirer lors de l’après-midi de vente au marché de Wanze.
               </p>
             </div>
 
@@ -393,7 +407,7 @@
         <div class="grid lg:grid-cols-2 gap-12">
           <div>
             <img src="./img/logo.png" alt="Logo Terre & Ciel Maraîchage" class="h-72 w-auto mb-8" />
-            <p class="text-gray-600">© 2025, Terre & Ciel - Maraîchage.<br />Armand Monnoyer</p>
+            <p class="text-gray-600">© 2025, <em>Terre & Ciel, Maraîchage</em>.<br />Armand Monnoyer</p>
           </div>
 
           <div>
@@ -432,8 +446,8 @@
                   </svg>
                 </div>
                 <div>
-                  <a href="tel:+32477217727" class="hover:text-primary-600 transition-colors" aria-label="Appeler le 0477 21 77 27">
-                    0477 21 77 27
+                  <a href="tel:+32477217727" class="hover:text-primary-600 transition-colors" aria-label="Appeler le +32 477 21 77 27">
+                    +32 477 21 77 27
                   </a>
                 </div>
               </div>
