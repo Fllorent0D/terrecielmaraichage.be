@@ -1,5 +1,4 @@
 export class ThemeToggle {
-  private toggleButton: HTMLElement | null = null;
   private currentTheme: string = 'light';
 
   constructor() {
@@ -31,7 +30,6 @@ export class ThemeToggle {
       // Add to the very end (most right) of the navbar
       desktopNav.appendChild(desktopButton);
 
-      this.toggleButton = desktopButton;
     }
 
     if (mobileMenu) {
