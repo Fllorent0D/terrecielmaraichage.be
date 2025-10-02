@@ -47,11 +47,15 @@
 }
 
 .section--custom-1 {
-  height: 20vh;
+  // Remove fixed height to allow inline styles to work
+  // height: 20vh;
+
+  // Show background image on all screen sizes
+  background: url(/img/img10.jpeg) no-repeat center center;
+  background-size: cover;
 
   @include min-screen($md-width) {
-    // all width image
-    background: url(/img/img10.jpeg) no-repeat center center;
+    // Keep existing styles for larger screens
     background-size: cover;
   }
 
