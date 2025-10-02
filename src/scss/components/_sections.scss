@@ -86,3 +86,26 @@
   // Add any specific logo background styling here if needed
 }
 
+// Parallax section
+.parallax-section {
+  @include max-screen($md-width) {
+    background-attachment: scroll !important; // Disable parallax on mobile for better performance
+  }
+  
+  .parallax-overlay {
+    transition: opacity 0.3s ease;
+  }
+  
+  &:hover .parallax-overlay {
+    opacity: 0.2;
+  }
+  
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  }
+  
+  .text-shadow-lg {
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+  }
+}
+

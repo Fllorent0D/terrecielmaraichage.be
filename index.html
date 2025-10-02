@@ -81,7 +81,7 @@
           <div class="hidden md:flex items-center space-x-8" role="menubar">
             <a href="#home" class="nav-link" role="menuitem" aria-current="page">Accueil</a>
             <a href="#about" class="nav-link" role="menuitem">À propos</a>
-            <a href="#markets" class="nav-link" role="menuitem">Nos marchés</a>
+            <a href="#markets" class="nav-link" role="menuitem">Point de vente</a>
             <a href="#orders" class="nav-link" role="menuitem">Commandes</a>
             <a href="#contact" class="nav-link" role="menuitem">Contact</a>
             <a href="https://app.ciboulette.net/signup/yLbWwELb7hmrtEzoj/1477691959"
@@ -98,7 +98,7 @@
           <div class="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-200">
             <a href="#home" class="mobile-nav-link" role="menuitem" aria-current="page">Accueil</a>
             <a href="#about" class="mobile-nav-link" role="menuitem">À propos</a>
-            <a href="#markets" class="mobile-nav-link" role="menuitem">Nos marchés</a>
+            <a href="#markets" class="mobile-nav-link" role="menuitem">Point de vente</a>
             <a href="#orders" class="mobile-nav-link" role="menuitem">Commandes</a>
             <a href="#contact" class="mobile-nav-link" role="menuitem">Contact</a>
             <a href="https://app.ciboulette.net/signup/yLbWwELb7hmrtEzoj/1477691959"
@@ -208,10 +208,15 @@
       </div>
     </section>
 
-    <!-- Section Custom 1 (No content - spacer) -->
-    <section class="section section--no-pt section--custom-1">
-      <div class="container mx-auto px-4">
-        <!-- Spacer content can be added here if needed -->
+    <!-- Section Custom 1 - Grape/Raisin Parallax -->
+    <section class="section section--no-pt section--custom-1 parallax-section" style="background-image: url(/img/img14.jpeg); background-attachment: fixed; background-size: cover; background-position: center; min-height: 25vh; position: relative;">
+      <div class="parallax-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.4);"></div>
+      <div class="container mx-auto px-4 relative z-10 flex items-center justify-center" style="height: 15vh;">
+        <div class="text-center text-white max-w-4xl">
+          <h3 class="text-4xl md:text-5xl font-bold mb-6" style="text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.9); color: #ffffff;">Nos produits de saison</h3>
+          <p class="text-xl md:text-2xl mb-8" style="text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8); color: #ffffff;">Découvrez la richesse de nos récoltes biologiques</p>
+        
+        </div>
       </div>
     </section>
 
@@ -221,7 +226,7 @@
         <div class="grid lg:grid-cols-2 gap-8 lg:gap-12">
           <div class="lg:col-span-1">
             <div class="mb-8">
-              <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Une jeune ferme en croissance</h2>
+              <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Une activité maraîchère en croissance</h2>
               <h4 class="text-xl font-medium text-gray-900 mb-6">Ce projet, encore au stade « quatre feuilles » de maturité, vise une production variée de légumes et fruits de saison.</h4>
             </div>
 
@@ -229,9 +234,9 @@
               Colorés, goûteux et gorgés de vie, nos produits biologiques – parfois biscornus – offrent un autre point de vue : la beauté de l'imparfait, l'authenticité du vivant.
             </p>
 
-            <p class="text-gray-600 mb-6">
-              Implantée sur 70 ares de terres cultivées, la ferme entre en cinquième année de culture en 2024, forte de son expérience et d'une vision claire : produire dans le respect de la nature, des sols et des saisons.
-            </p>
+              <p class="text-gray-600 mb-6">
+                Implantée sur 70 ares de terres maraîchères, les cultures entrent en cinquième année de récolte en 2025, forte de son expérience et d'une vision claire : produire dans le respect de la nature, des sols et des saisons.
+              </p>
 
             <div class="lg:mb-5">&nbsp;</div>
 
@@ -240,7 +245,7 @@
             </p>
           </div>
           <div class="lg:col-span-1">
-            <div class="img-place" style="background-image: url(/img/img14.jpeg); height: 400px; border-radius: 8px; background-size: cover; background-position: center;"></div>
+            <div class="img-place" style="background-image: url(/img/img25.jpeg); height: 500px; border-radius: 8px; background-size: cover; background-position: center;"></div>
           </div>
         </div>
       </div>
@@ -266,7 +271,7 @@
               <h4 class="text-xl font-medium text-gray-900 mb-4">Une invitation à la rencontre</h4>
 
               <p class="text-gray-600 mb-6">
-                Ce projet n'est pas qu'une ferme : c'est une histoire à partager. Venez me rencontrer, échanger, visiter les champs. Je me ferai une joie de vous présenter mon « pote âgé » et cette vision d'un maraîchage durable, gourmand et profondément humain.
+                Ce projet n'est pas qu'une activité maraîchère : c'est une histoire à partager. Venez me rencontrer, échanger, visiter les champs lors d'une journée portes ouvertes. Je me ferai une joie de vous présenter mon potager et cette vision d'un maraîchage durable, gourmand et profondément humain.
               </p>
 
               <p style="text-align: right; font-style: italic; margin-top: 30px;">
@@ -282,77 +287,33 @@
     <section id="markets" class="section py-8 md:py-24" aria-labelledby="markets-heading">
       <div class="container mx-auto px-4">
         <div class="section-heading section-heading--center mb-6 md:mb-12">
-          <h2 id="markets-heading" class="title text-3xl md:text-4xl font-bold text-gray-900 mb-4 md:mb-6">Nos marchés</h2>
+          <h2 id="markets-heading" class="title text-3xl md:text-4xl font-bold text-gray-900 mb-4 md:mb-6">Point de vente</h2>
           <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-            Trois lieux et des horaires pour répondre au mieux à vos besoins et à vos agendas.
+            Venez nous retrouver chaque vendredi au marché de Wanze.
           </p>
 
         </div>
 
-        <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto" role="list" aria-label="Liste des marchés">
-          <!-- Huccorgne Market -->
-          <div class="bg-white rounded-lg shadow-lg p-6 border-l-4 border-primary-600 hover:shadow-xl transition-shadow duration-300" role="listitem">
-            <h5 class="text-xl font-bold text-primary-600 mb-4">Huccorgne</h5>
-            <p class="text-gray-800 font-semibold mb-4">2ème et 4ème jeudi du mois</p>
-            
-            <div class="space-y-3 mb-4">
-              <div class="flex items-center text-gray-600">
-                <i data-lucide="map-pin" class="w-5 h-5 mr-3 text-primary-600"></i>
-                <span>Place Communale</span>
-              </div>
-              <div class="flex items-center text-gray-600">
-                <i data-lucide="clock" class="w-5 h-5 mr-3 text-primary-600"></i>
-                <span>15h00 à 18h00</span>
-              </div>
-            </div>
-            
-            <div class="border-t pt-3 mt-4">
-              <p class="text-xs text-gray-500 mb-1">Prochaine date :</p>
-              <p class="text-sm font-medium text-primary-600" data-market="huccorgne"></p>
-            </div>
-          </div>
-
+        <div class="max-w-2xl mx-auto" role="list" aria-label="Point de vente">
           <!-- Wanze Market -->
-          <div class="bg-white rounded-lg shadow-lg p-6 border-l-4 border-primary-600 hover:shadow-xl transition-shadow duration-300" role="listitem">
-            <h5 class="text-xl font-bold text-primary-600 mb-4">Wanze</h5>
-            <p class="text-gray-800 font-semibold mb-4">Chaque vendredi</p>
+          <div class="bg-white rounded-lg shadow-lg p-8 border-l-4 border-primary-600 hover:shadow-xl transition-shadow duration-300" role="listitem">
+            <h5 class="text-2xl font-bold text-primary-600 mb-6">Marché de Wanze</h5>
+            <p class="text-gray-800 font-semibold mb-6 text-lg">Chaque vendredi</p>
             
-            <div class="space-y-3 mb-4">
+            <div class="space-y-4 mb-6">
               <div class="flex items-center text-gray-600">
-                <i data-lucide="map-pin" class="w-5 h-5 mr-3 text-primary-600"></i>
-                <span>Place Faniel de Wanze</span>
+                <i data-lucide="map-pin" class="w-6 h-6 mr-4 text-primary-600"></i>
+                <span class="text-lg">Place Faniel de Wanze</span>
               </div>
               <div class="flex items-center text-gray-600">
-                <i data-lucide="clock" class="w-5 h-5 mr-3 text-primary-600"></i>
-                <span>14h00 à 19h00</span>
-              </div>
-            </div>
-            
-            <div class="border-t pt-3 mt-4">
-              <p class="text-xs text-gray-500 mb-1">Prochaine date :</p>
-              <p class="text-sm font-medium text-primary-600" data-market="wanze"></p>
-            </div>
-          </div>
-
-          <!-- Villers-le-Bouillet Market -->
-          <div class="bg-white rounded-lg shadow-lg p-6 border-l-4 border-primary-600 hover:shadow-xl transition-shadow duration-300" role="listitem">
-            <h5 class="text-xl font-bold text-primary-600 mb-4">Villers-le-Bouillet</h5>
-            <p class="text-gray-800 font-semibold mb-4">1er jeudi du mois Av.> Sept</p>
-            
-            <div class="space-y-3 mb-4">
-              <div class="flex items-center text-gray-600">
-                <i data-lucide="map-pin" class="w-5 h-5 mr-3 text-primary-600"></i>
-                <span>Rue des Marronniers 16</span>
-              </div>
-              <div class="flex items-center text-gray-600">
-                <i data-lucide="clock" class="w-5 h-5 mr-3 text-primary-600"></i>
-                <span>16h00 à 20h00</span>
+                <i data-lucide="clock" class="w-6 h-6 mr-4 text-primary-600"></i>
+                <span class="text-lg">14h00 à 19h00</span>
               </div>
             </div>
             
-            <div class="border-t pt-3 mt-4">
-              <p class="text-xs text-gray-500 mb-1">Prochaine date :</p>
-              <p class="text-sm font-medium text-primary-600" data-market="villers"></p>
+            <div class="border-t pt-4 mt-6">
+              <p class="text-sm text-gray-500 mb-2">Prochaine date :</p>
+              <p class="text-lg font-medium text-primary-600" data-market="wanze"></p>
             </div>
           </div>
         </div>
@@ -421,7 +382,7 @@
                   </svg>
                 </div>
                 <div>
-                  <strong>Ferme Terre & Ciel</strong><br />
+                  <strong>Terre & Ciel, Maraîchage</strong><br />
                   4520 Antheit
                 </div>
               </div>
