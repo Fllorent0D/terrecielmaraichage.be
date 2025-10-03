@@ -10,12 +10,13 @@ export class HeroSlider {
 
     // Original slide images from the theme
     this.images = [
-      { name: "img 7", src: './img/img7.jpeg' },
       { name: "img 15", src: './img/img15.jpeg' },
       { name: "img 24", src: './img/img24.jpeg' },
       { name: "img 26", src: './img/img26.jpeg' },
       { name: "img 16", src: './img/img16.jpeg' },
       { name: "img 22", src: './img/img22.jpeg' },
+      { name: "img 9", src: './img/img9.jpeg' },
+
     ]
 
     this.init()
