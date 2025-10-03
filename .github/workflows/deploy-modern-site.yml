@@ -3,14 +3,6 @@ name: Build and Deploy Modern Site
 on:
   push:
     branches: [ main, master ]
-    paths:
-      - '.github/workflows/deploy-modern-site.yml'
-      - 'package.json'
-      - 'package-lock.json'
-      - 'vite.config.ts'
-      - 'index.html'
-      - 'src/**'
-      - 'public/**'
   pull_request:
     branches: [ main, master ]
   workflow_dispatch:
