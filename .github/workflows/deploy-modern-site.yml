@@ -81,22 +81,18 @@ jobs:
     
     - name: Install dependencies
       run: |
-        cd modern-site
         npm ci
     
     - name: Run linting
       run: |
-        cd modern-site
         npm run lint
     
     - name: Type check
       run: |
-        cd modern-site
         npx tsc --noEmit
     
     - name: Build project
       run: |
-        cd modern-site
         npm run build
       env:
         NODE_ENV: production
@@ -105,4 +101,4 @@ jobs:
       run: |
         echo "✅ Build completed successfully"
         echo "📁 Build output:"
-        ls -la modern-site/dist/
+        ls -la dist/
