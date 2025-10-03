@@ -297,13 +297,31 @@
     </section>
 
     <!-- Section Custom 1 - Grape/Raisin Parallax -->
-    <section class="section section--no-pt section--custom-1 parallax-section" style="background-image: url(/img/img14.jpeg); background-attachment: fixed; background-size: cover; background-position: center; min-height: 25vh; position: relative;">
-      <div class="parallax-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.4);"></div>
-      <div class="container mx-auto px-4 relative z-10 flex items-center justify-center" style="height: 15vh;">
+    <section class="section py-8 md:py-12 parallax-section" style="background-image: url('./img/img14.jpeg'); background-size: cover; background-position: center; background-repeat: no-repeat; position: relative; min-height: 30vh;">
+      <!-- Mobile-friendly parallax effect -->
+      <style>
+        @media (min-width: 768px) {
+          .parallax-section {
+            background-attachment: fixed;
+          }
+        }
+        @media (max-width: 767px) {
+          .parallax-section {
+            background-attachment: scroll;
+            background-position: center center;
+            background-size: cover;
+          }
+        }
+      </style>
+      <div class="parallax-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.5);"></div>
+      <div class="container mx-auto px-4 relative z-10 flex items-center justify-center" style="height: 30vh;">
         <div class="text-center text-white max-w-4xl">
-          <h3 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6" style="text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.9); color: #ffffff;">Nos produits de saison</h3>
-          <p class="text-base sm:text-lg md:text-xl lg:text-2xl mb-4 md:mb-8" style="text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8); color: #ffffff;">Découvrez la richesse de nos récoltes biologiques</p>
-        
+          <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 md:mb-8 text-white" style="text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.9);">
+            Nos produits de saison
+          </h2>
+          <p class="text-lg sm:text-xl md:text-2xl lg:text-3xl mb-8 md:mb-12" style="text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);">
+            Découvrez la richesse de nos récoltes biologiques
+          </p>
         </div>
       </div>
     </section>
@@ -333,7 +351,7 @@
             </p>
           </div>
           <div class="lg:col-span-1">
-            <div class="img-place" style="background-image: url(/img/img25.jpeg); height: 500px; border-radius: 8px; background-size: cover; background-position: center;"></div>
+            <div class="img-place" style="background-image: url('./img/img25.jpeg'); height: 500px; border-radius: 8px; background-size: cover; background-position: center;"></div>
           </div>
         </div>
       </div>
