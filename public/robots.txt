@@ -1,0 +1,27 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://terrecielmaraichage.be/sitemap.xml
+
+# Allow all search engines to crawl the site
+Allow: /img/
+Allow: /src/
+Allow: /*.css
+Allow: /*.js
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.gif
+Allow: /*.svg
+Allow: /*.ico
+
+# Disallow access to sensitive areas (if any)
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /.github/
+Disallow: /dist/
+Disallow: /*.log
+
+# Crawl delay (optional - helps prevent overloading server)
+Crawl-delay: 1
