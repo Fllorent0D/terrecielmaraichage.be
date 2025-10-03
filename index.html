@@ -659,8 +659,8 @@
             const weekOfMonth = Math.floor((dayOfMonth - firstThursday.getDate()) / 7) + 1;
 
             if (pattern === 'weekly-friday' && dayOfWeek === 5) {
-              // Every Friday
-              if (checkDate.getTime() > now.getTime()) {
+              // Every Friday - include today if it's Friday
+              if (checkDate.getTime() >= now.getTime()) {
                 return checkDate;
               }
             } else if (pattern === 'biweekly-thursday' && dayOfWeek === 4) {
@@ -689,8 +689,11 @@
           };
           const formatted = date.toLocaleDateString('fr-FR', options);
 
-          // Calculate days until
-          const daysUntil = Math.ceil((date.getTime() - now.getTime()) / (24 * 60 * 60 * 1000));
+          // Compare dates by date only (ignore time)
+          const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+          const marketDate = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+          
+          const daysUntil = Math.ceil((marketDate.getTime() - today.getTime()) / (24 * 60 * 60 * 1000));
 
           if (daysUntil === 0) {
             return `Aujourd'hui - ${formatted}`;
