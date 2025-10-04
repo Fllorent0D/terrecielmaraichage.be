@@ -5,11 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Content Manager</title>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    .loading {
+      text-align: center;
+      margin-top: 50px;
+      color: #666;
+    }
+  </style>
 </head>
 <body>
+  <div class="loading">Chargement de l'interface d'administration...</div>
+  
   <!-- Include the script that builds the page and powers Netlify CMS -->
   <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+  
   <script>
+    // Initialize Netlify Identity
     if (window.netlifyIdentity) {
       window.netlifyIdentity.on("init", user => {
         if (!user) {
@@ -19,6 +36,23 @@
         }
       });
     }
+
+    // Show error if CMS doesn't load
+    setTimeout(() => {
+      const loading = document.querySelector('.loading');
+      if (loading && !window.CMS) {
+        loading.innerHTML = `
+          <h2>Erreur de chargement</h2>
+          <p>L'interface d'administration ne peut pas se charger.</p>
+          <p><strong>Solutions possibles :</strong></p>
+          <ul style="text-align: left; display: inline-block;">
+            <li>Vérifiez votre connexion internet</li>
+            <li>Rafraîchissez la page</li>
+            <li>Assurez-vous que Netlify Identity est activé</li>
+          </ul>
+        `;
+      }
+    }, 5000);
   </script>
 </body>
 </html>

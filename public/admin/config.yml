@@ -5,6 +5,9 @@ backend:
 # Local development server
 local_backend: true
 
+# Enable preview mode
+publish_mode: editorial_workflow
+
 media_folder: "public/img" # Media files will be stored in the repo under public/img/
 public_folder: "/img" # The src attribute for uploaded media will begin with /img/
 
