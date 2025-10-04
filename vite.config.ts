@@ -3,7 +3,7 @@ import { VitePWA } from 'vite-plugin-pwa'
 import viteImagemin from 'vite-plugin-imagemin'
 
 export default defineConfig({
-  base: process.env.NODE_ENV === 'production' ? '/terrecielmaraichage.be/' : '/',
+  base: process.env.NODE_ENV === 'production' && process.env.DEPLOY_TARGET === 'github-pages' ? '/terrecielmaraichage.be/' : '/',
   plugins: [
     VitePWA({
       registerType: 'autoUpdate',
