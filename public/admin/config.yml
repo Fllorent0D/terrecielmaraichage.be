@@ -1,0 +1,50 @@
+backend:
+  name: git-gateway
+  branch: main # Branch to update (optional, defaults to master)
+
+# Local development server
+local_backend: true
+
+media_folder: "public/img" # Media files will be stored in the repo under public/img/
+public_folder: "/img" # The src attribute for uploaded media will begin with /img/
+
+collections:
+  - name: "pages" # Used in routes, e.g., /admin/collections/pages
+    label: "Pages" # Used in the UI
+    files:
+      - label: "Homepage"
+        name: "homepage"
+        file: "index.html"
+        fields: # The fields for each document, usually in front matter
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Meta Description", name: "description", widget: "text"}
+          - {label: "Hero Title", name: "hero_title", widget: "string"}
+          - {label: "Hero Subtitle", name: "hero_subtitle", widget: "string"}
+          - {label: "About Heading", name: "about_heading", widget: "string"}
+          - {label: "About Text", name: "about_text", widget: "markdown"}
+          - {label: "Market Hours", name: "market_hours", widget: "string"}
+          - {label: "Market Location", name: "market_location", widget: "string"}
+          - {label: "Phone", name: "phone", widget: "string"}
+          - {label: "Email", name: "email", widget: "string"}
+          - {label: "Address", name: "address", widget: "string"}
+          - {label: "IBAN", name: "iban", widget: "string"}
+          - {label: "TVA Number", name: "tva", widget: "string"}
+          - {label: "Facebook URL", name: "facebook_url", widget: "string"}
+          - label: "Background Image"
+            name: "background_image"
+            widget: "image"
+            required: false
+          - label: "Profile Image"
+            name: "profile_image"
+            widget: "image"
+            required: false
+
+  - name: "images" # Used in routes, e.g., /admin/collections/images
+    label: "Images" # Used in the UI
+    folder: "public/img" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Image", name: "image", widget: "image"}
+      - {label: "Alt Text", name: "alt", widget: "string", required: false}
