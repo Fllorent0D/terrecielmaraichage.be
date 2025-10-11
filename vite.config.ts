@@ -3,7 +3,7 @@ import { VitePWA } from 'vite-plugin-pwa'
 import viteImagemin from 'vite-plugin-imagemin'
 
 export default defineConfig({
-  base: process.env.NODE_ENV === 'production' ? '/terrecielmaraichage.be/' : '/',
+  base: '/',
   plugins: [
     VitePWA({
       registerType: 'autoUpdate',
@@ -71,4 +71,5 @@ export default defineConfig({
       usePolling: true
     }
   }
+
 })
