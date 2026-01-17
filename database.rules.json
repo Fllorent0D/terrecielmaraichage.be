@@ -3,16 +3,63 @@
     // Public read access for website content
     "config": {
       ".read": true,
-      ".write": "auth != null"
+      ".write": "auth != null && root.child('admins').child(auth.uid).exists()",
+
+      "marketSection": {
+        ".validate": "newData.hasChildren(['title', 'description'])",
+        "title": { ".validate": "newData.isString() && newData.val().length <= 200" },
+        "description": { ".validate": "newData.isString() && newData.val().length <= 1000" }
+      },
+      "markets": {
+        "$marketId": {
+          ".validate": "newData.hasChildren(['enabled', 'name', 'day', 'pattern', 'hours', 'location'])",
+          "enabled": { ".validate": "newData.isBoolean()" },
+          "name": { ".validate": "newData.isString() && newData.val().length <= 100" },
+          "day": { ".validate": "newData.isString() && newData.val().matches(/^(monday|tuesday|wednesday|thursday|friday|saturday|sunday)$/)" },
+          "pattern": { ".validate": "newData.isString() && newData.val().matches(/^(weekly|biweekly|monthly)$/)" },
+          "hours": { ".validate": "newData.isString() && newData.val().length <= 50" },
+          "location": { ".validate": "newData.isString() && newData.val().length <= 200" },
+          "weeks": { ".validate": "!newData.exists() || newData.isNumber() || newData.hasChildren()" },
+          "week": { ".validate": "!newData.exists() || (newData.isNumber() && newData.val() >= 1 && newData.val() <= 5)" },
+          "months": { ".validate": "!newData.exists() || newData.hasChildren()" },
+          "closedDates": { ".validate": "!newData.exists() || newData.hasChildren()" }
+        }
+      },
+      "lastUpdated": { ".validate": "newData.isString()" }
     },
+
     "gallery": {
       ".read": true,
-      ".write": "auth != null"
+      ".write": "auth != null && root.child('admins').child(auth.uid).exists()",
+
+      "images": {
+        "$imageIndex": {
+          ".validate": "newData.hasChildren(['src', 'visible'])",
+          "src": { ".validate": "newData.isString() && newData.val().length <= 500" },
+          "caption": { ".validate": "!newData.exists() || (newData.isString() && newData.val().length <= 200)" },
+          "visible": { ".validate": "newData.isBoolean()" },
+          "isFirebaseStorage": { ".validate": "!newData.exists() || newData.isBoolean()" }
+        }
+      },
+      "lastUpdated": { ".validate": "newData.isString()" }
     },
+
     "content": {
       ".read": true,
-      ".write": "auth != null"
+      ".write": "auth != null && root.child('admins').child(auth.uid).exists()",
+
+      // Allow flexible structure but validate string lengths
+      "$section": {
+        ".validate": "newData.isString() ? newData.val().length <= 5000 : true"
+      }
     },
+
+    // Admin users list - only readable by admins, writable only via Firebase Console
+    "admins": {
+      ".read": "auth != null && root.child('admins').child(auth.uid).exists()",
+      ".write": false
+    },
+
     // Deny access to everything else by default
     "$other": {
       ".read": false,

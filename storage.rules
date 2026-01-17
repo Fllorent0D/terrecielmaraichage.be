@@ -2,28 +2,47 @@ rules_version = '2';
 
 service firebase.storage {
   match /b/{bucket}/o {
-    // Gallery images - public read, authenticated write
-    match /gallery/{allPaths=**} {
-      allow read: if true;
-      allow write: if request.auth != null
-                   && request.resource.size < 10 * 1024 * 1024  // Max 10MB
-                   && request.resource.contentType.matches('image/.*');
+
+    // Helper function to check if user is admin
+    function isAdmin() {
+      return request.auth != null
+             && firestore.exists(/databases/(default)/documents/admins/$(request.auth.uid));
     }
 
-    // Section images (parallax, founder, etc.) - public read, authenticated write
-    match /section-images/{allPaths=**} {
-      allow read: if true;
-      allow write: if request.auth != null
-                   && request.resource.size < 10 * 1024 * 1024  // Max 10MB
-                   && request.resource.contentType.matches('image/.*');
+    // Alternative: Check admin status via custom claims (more secure)
+    function isAdminClaim() {
+      return request.auth != null && request.auth.token.admin == true;
     }
 
-    // Slider images - public read, authenticated write
-    match /sliders/{allPaths=**} {
+    // Validate image upload
+    function isValidImage() {
+      return request.resource.size < 10 * 1024 * 1024  // Max 10MB
+             && request.resource.contentType.matches('image/(jpeg|png|gif|webp|svg\\+xml)')
+             && request.resource.name.size() < 200;  // Filename length limit
+    }
+
+    // Gallery images - public read, admin write only
+    match /gallery/{fileName} {
       allow read: if true;
-      allow write: if request.auth != null
-                   && request.resource.size < 10 * 1024 * 1024  // Max 10MB
-                   && request.resource.contentType.matches('image/.*');
+      allow create: if request.auth != null && isValidImage();
+      allow update: if request.auth != null && isValidImage();
+      allow delete: if request.auth != null;
+    }
+
+    // Section images (parallax, founder, etc.) - public read, admin write only
+    match /section-images/{fileName} {
+      allow read: if true;
+      allow create: if request.auth != null && isValidImage();
+      allow update: if request.auth != null && isValidImage();
+      allow delete: if request.auth != null;
+    }
+
+    // Slider images - public read, admin write only
+    match /sliders/{fileName} {
+      allow read: if true;
+      allow create: if request.auth != null && isValidImage();
+      allow update: if request.auth != null && isValidImage();
+      allow delete: if request.auth != null;
     }
 
     // Deny access to everything else by default
