@@ -1,0 +1,79 @@
+{
+  "content": {
+    "hero": {
+      "title": "Terre & Ciel Maraichage",
+      "subtitle": "Legumes et fruits bio cultives avec passion a Antheit"
+    },
+    "about": {
+      "title": "A propos",
+      "description": "Nous sommes une exploitation maraichere biologique situee a Antheit."
+    },
+    "contact": {
+      "phone": "+32 498 53 55 37",
+      "email": "terrecielmaraichage@gmail.com",
+      "address": "Rue Laid Burniat 28, 4520 Antheit"
+    },
+    "lastUpdated": "2025-01-17"
+  },
+  "config": {
+    "markets": {
+      "wanze": {
+        "enabled": true,
+        "name": "Marché de Wanze",
+        "day": "friday",
+        "pattern": "weekly",
+        "hours": "14:00-19:00",
+        "location": "Place Faniel de Wanze",
+        "closedDates": []
+      },
+      "huccorgne": {
+        "enabled": false,
+        "name": "Marché de Huccorgne",
+        "day": "thursday",
+        "pattern": "biweekly",
+        "weeks": [2, 4],
+        "hours": "16:00-19:00",
+        "location": "Huccorgne",
+        "closedDates": []
+      },
+      "villers": {
+        "enabled": false,
+        "name": "Marché de Villers-le-Bouillet",
+        "day": "thursday",
+        "pattern": "monthly",
+        "week": 1,
+        "months": [4, 5, 6, 7, 8, 9],
+        "hours": "16:00-19:00",
+        "location": "Villers-le-Bouillet",
+        "closedDates": []
+      }
+    },
+    "lastUpdated": "2025-01-17"
+  },
+  "gallery": {
+    "images": [
+      { "src": "img/img1.jpeg", "caption": "", "visible": true },
+      { "src": "img/img2.jpeg", "caption": "", "visible": true },
+      { "src": "img/img3.jpeg", "caption": "", "visible": true },
+      { "src": "img/img5.jpeg", "caption": "", "visible": true },
+      { "src": "img/img6.jpeg", "caption": "", "visible": true },
+      { "src": "img/img7.jpeg", "caption": "", "visible": true },
+      { "src": "img/img8.jpeg", "caption": "", "visible": true },
+      { "src": "img/img9.jpeg", "caption": "", "visible": true },
+      { "src": "img/img10.jpeg", "caption": "", "visible": true },
+      { "src": "img/img11.jpeg", "caption": "", "visible": true },
+      { "src": "img/img12.jpeg", "caption": "", "visible": true },
+      { "src": "img/img13.jpeg", "caption": "", "visible": true },
+      { "src": "img/img15.jpeg", "caption": "", "visible": true },
+      { "src": "img/img16.jpeg", "caption": "", "visible": true },
+      { "src": "img/img17.jpeg", "caption": "", "visible": true },
+      { "src": "img/img18.jpeg", "caption": "", "visible": true },
+      { "src": "img/img19.jpeg", "caption": "", "visible": true },
+      { "src": "img/img20.jpeg", "caption": "", "visible": true },
+      { "src": "img/img21.jpeg", "caption": "", "visible": true },
+      { "src": "img/img22.jpeg", "caption": "", "visible": true },
+      { "src": "img/img23.jpeg", "caption": "", "visible": true }
+    ],
+    "lastUpdated": "2025-01-17"
+  }
+}

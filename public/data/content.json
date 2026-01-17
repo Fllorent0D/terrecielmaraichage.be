@@ -1,0 +1,85 @@
+{
+  "navigation": {
+    "logoImage": "./img/logo-text.png",
+    "orderUrl": "https://app.ciboulette.net/signup/yLbWwELb7hmrtEzoj/1477691959",
+    "orderButtonText": "Commander"
+  },
+  "heroSlider": {
+    "images": [
+      { "src": "img/img26.jpeg", "visible": true },
+      { "src": "img/img25.jpeg", "visible": true },
+      { "src": "img/img24.jpeg", "visible": true }
+    ]
+  },
+  "aboutSection": {
+    "mainHeading": "Présentation du projet de maraîchage biologique",
+    "subtitle": "Une agriculture de vie en agriculture respectueuse de l'environnement",
+    "paragraphs": [
+      "Un projet de maraîchage biologique, une aventure de vie, où la nature nous défie, sur une note d'harmonie parfumée de folie, de la contempler pour mieux pouvoir l'honorer, afin de nous offrir, à chaque saison, des fruits savoureux dans leur plus authentique expression.",
+      "Cultiver un potager est pour moi un plaisir sans cesse renouvelé. De ce « pote âgé », j'apprends encore et toujours. Devant l'étendue de sa beauté, je découvre l'humilité.",
+      "Cette philosophie guide notre approche du maraîchage biologique à Wanze et dans la région d'Antheit."
+    ],
+    "features": [
+      { "icon": "leaf", "title": "Légumes<br />Bio", "visible": true },
+      { "icon": "apple", "title": "Fruits<br />de Saison", "visible": true },
+      { "icon": "heart-handshake", "title": "Agriculture<br />respectueuse de <br />l'environnement", "visible": true },
+      { "icon": "area-chart", "title": "70 ares<br />Cultivés", "visible": true },
+      { "icon": "users", "title": "Proximité<br />Humaine", "visible": true }
+    ]
+  },
+  "parallax": {
+    "backgroundImage": "img/img14.jpeg",
+    "heading": "Nos produits de saison",
+    "subheading": "Découvrez la richesse de nos récoltes biologiques"
+  },
+  "growingActivity": {
+    "heading": "Une activité maraîchère en croissance",
+    "subtitle": "Ce projet, encore au stade « quatre feuilles » de maturité, vise une production variée de légumes et fruits de saison.",
+    "paragraphs": [
+      "Colorés, goûteux et gorgés de vie, nos produits biologiques – parfois biscornus – offrent un autre point de vue : la beauté de l'imparfait, l'authenticité du vivant.",
+      "Implantée sur 70 ares de terres maraîchères, les cultures entrent en cinquième année de récolte en 2025, forte de son expérience et d'une vision claire : produire dans le respect de la nature, des sols et des saisons."
+    ],
+    "ctaText": "Nous contacter",
+    "ctaUrl": "#contact",
+    "sideImage": "img/img25.jpeg"
+  },
+  "founder": {
+    "image": "./img/img4.jpeg",
+    "heading": "Une agriculture alliée de la nature",
+    "subHeading": "Une invitation à la rencontre",
+    "paragraphs": [
+      "Passionné et converti à une agriculture respectueuse, je guide cette terre vers son équilibre naturel. Les plantes, micro-organismes et vers de terre y trouvent naturellement leur place. Chaque récolte devient le fruit d'une alliance entre ma main et les forces vivantes de la terre et du ciel.",
+      "Ce projet n'est pas qu'une activité maraîchère : c'est une histoire à partager. Venez me rencontrer, échanger, visiter les champs lors d'une journée portes ouvertes. Je me ferai une joie de vous présenter mon potager et cette vision d'un maraîchage durable, gourmand et profondément humain."
+    ],
+    "signatureName": "Armand"
+  },
+  "gallerySection": {
+    "title": "Galerie",
+    "description": "Quelques images de notre ferme et de nos produits"
+  },
+  "orders": {
+    "title": "Commandes",
+    "introText": "Inscrivez-vous pour profiter chaque semaine des ventes de <em>Terre & Ciel, Maraîchage</em>.",
+    "pickupHeading": "Retrait des commandes",
+    "pickupHours": "Tous les vendredis de 14h00 à 18h30",
+    "pickupLocation": "WANZE - Place Faniel, Wanze, Belgique",
+    "pickupNote": "Commande à retirer lors de l'après-midi de vente au marché de Wanze.",
+    "buttonText": "S'inscrire aux ventes",
+    "buttonUrl": "https://app.ciboulette.net/signup/yLbWwELb7hmrtEzoj/1477691959"
+  },
+  "footer": {
+    "logoImage": "./img/logo.png",
+    "copyrightYear": "2025",
+    "businessName": "Terre & Ciel, Maraîchage",
+    "ownerName": "Armand Monnoyer",
+    "tagline": "Maraîchage biologique à Antheit - Légumes et fruits de saison",
+    "address": "4520 Antheit",
+    "email": "armand@terrecielmaraichage.be",
+    "phone": "+32 477 21 77 27",
+    "facebookUrl": "https://www.facebook.com/terreetcielmaraichage/",
+    "iban": "BE38 3771 3204 9672",
+    "vat": "BE07 7853 9519",
+    "footerQuote": "Cultiver un potager est pour moi un plaisir sans cesse renouvelé."
+  },
+  "lastUpdated": "2025-01-17"
+}

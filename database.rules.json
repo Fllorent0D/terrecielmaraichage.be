@@ -1,0 +1,22 @@
+{
+  "rules": {
+    // Public read access for website content
+    "config": {
+      ".read": true,
+      ".write": "auth != null"
+    },
+    "gallery": {
+      ".read": true,
+      ".write": "auth != null"
+    },
+    "content": {
+      ".read": true,
+      ".write": "auth != null"
+    },
+    // Deny access to everything else by default
+    "$other": {
+      ".read": false,
+      ".write": false
+    }
+  }
+}

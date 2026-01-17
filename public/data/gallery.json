@@ -1,0 +1,26 @@
+{
+  "images": [
+    { "src": "img/img1.jpeg", "caption": "", "visible": true },
+    { "src": "img/img2.jpeg", "caption": "", "visible": true },
+    { "src": "img/img3.jpeg", "caption": "", "visible": true },
+    { "src": "img/img5.jpeg", "caption": "", "visible": true },
+    { "src": "img/img6.jpeg", "caption": "", "visible": true },
+    { "src": "img/img7.jpeg", "caption": "", "visible": true },
+    { "src": "img/img8.jpeg", "caption": "", "visible": true },
+    { "src": "img/img9.jpeg", "caption": "", "visible": true },
+    { "src": "img/img10.jpeg", "caption": "", "visible": true },
+    { "src": "img/img11.jpeg", "caption": "", "visible": true },
+    { "src": "img/img12.jpeg", "caption": "", "visible": true },
+    { "src": "img/img13.jpeg", "caption": "", "visible": true },
+    { "src": "img/img15.jpeg", "caption": "", "visible": true },
+    { "src": "img/img16.jpeg", "caption": "", "visible": true },
+    { "src": "img/img17.jpeg", "caption": "", "visible": true },
+    { "src": "img/img18.jpeg", "caption": "", "visible": true },
+    { "src": "img/img19.jpeg", "caption": "", "visible": true },
+    { "src": "img/img20.jpeg", "caption": "", "visible": true },
+    { "src": "img/img21.jpeg", "caption": "", "visible": true },
+    { "src": "img/img22.jpeg", "caption": "", "visible": true },
+    { "src": "img/img23.jpeg", "caption": "", "visible": true }
+  ],
+  "lastUpdated": "2025-01-17"
+}

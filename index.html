@@ -169,6 +169,7 @@
           <div class="hidden md:flex items-center space-x-8" role="menubar">
             <a href="#home" class="nav-link" role="menuitem" aria-current="page">Accueil</a>
             <a href="#about" class="nav-link" role="menuitem">À propos</a>
+            <a href="#gallery" class="nav-link" role="menuitem">Galerie</a>
             <a href="#markets" class="nav-link" role="menuitem">Point de vente</a>
             <a href="#orders" class="nav-link" role="menuitem">Commandes</a>
             <!-- <a href="#faq" class="nav-link" role="menuitem">FAQ</a> -->
@@ -187,6 +188,7 @@
           <div class="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-200">
             <a href="#home" class="mobile-nav-link" role="menuitem" aria-current="page">Accueil</a>
             <a href="#about" class="mobile-nav-link" role="menuitem">À propos</a>
+            <a href="#gallery" class="mobile-nav-link" role="menuitem">Galerie</a>
             <a href="#markets" class="mobile-nav-link" role="menuitem">Point de vente</a>
             <a href="#orders" class="mobile-nav-link" role="menuitem">Commandes</a>
             <!-- <a href="#faq" class="mobile-nav-link" role="menuitem">FAQ</a> -->
@@ -392,39 +394,28 @@
       </div>
     </section>
 
+    <!-- Gallery Section -->
+    <section id="gallery" class="section py-8 md:py-24" aria-labelledby="gallery-heading">
+      <div class="container mx-auto px-4">
+        <div class="section-heading section-heading--center mb-6 md:mb-12">
+          <h2 id="gallery-heading" class="title text-3xl md:text-4xl font-bold text-gray-900 mb-4 md:mb-6">Galerie</h2>
+          <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+            Quelques images de notre ferme et de nos produits
+          </p>
+        </div>
+        <div id="gallery-grid" class="gallery-grid" role="list" aria-label="Galerie photos"></div>
+      </div>
+    </section>
+
     <!-- Markets Section -->
     <section id="markets" class="section py-8 md:py-24" aria-labelledby="markets-heading">
       <div class="container mx-auto px-4">
-        <div class="section-heading section-heading--center mb-6 md:mb-12">
-          <h2 id="markets-heading" class="title text-3xl md:text-4xl font-bold text-gray-900 mb-4 md:mb-6">Point de vente</h2>
-          <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-            Venez nous retrouver chaque vendredi au marché de Wanze pour découvrir nos légumes biologiques et fruits de saison cultivés à Antheit.
-          </p>
-
+        <div class="section-heading section-heading--center mb-6 md:mb-12" id="markets-section-heading">
+          <!-- Section heading rendered dynamically -->
         </div>
 
-        <div class="max-w-2xl mx-auto" role="list" aria-label="Point de vente">
-          <!-- Wanze Market -->
-          <div class="bg-white rounded-lg shadow-lg p-8 border-l-4 border-primary-600 hover:shadow-xl transition-shadow duration-300" role="listitem">
-            <h5 class="text-2xl font-bold text-primary-600 mb-6">Marché de Wanze</h5>
-            <p class="text-gray-800 font-semibold mb-6 text-lg">Chaque vendredi</p>
-            
-            <div class="space-y-4 mb-6">
-              <div class="flex items-center text-gray-600">
-                <i data-lucide="map-pin" class="w-6 h-6 mr-4 text-primary-600"></i>
-                <span class="text-lg">Place Faniel de Wanze</span>
-              </div>
-              <div class="flex items-center text-gray-600">
-                <i data-lucide="clock" class="w-6 h-6 mr-4 text-primary-600"></i>
-                <span class="text-lg">14h00 à 19h00</span>
-              </div>
-            </div>
-            
-            <div class="border-t pt-4 mt-6">
-              <p class="text-sm text-gray-500 mb-2">Prochaine date :</p>
-              <p class="text-lg font-medium text-primary-600" data-market="wanze"></p>
-            </div>
-          </div>
+        <div class="max-w-2xl mx-auto" role="list" aria-label="Point de vente" id="markets-container">
+          <!-- Market cards rendered dynamically -->
         </div>
       </div>
     </section>
@@ -632,123 +623,9 @@
     </button>
 
     <script type="module" src="/src/main.ts"></script>
-    
-    <!-- Market Dates Calculation Script -->
+
+    <!-- Mobile Menu Accessibility -->
     <script>
-      function calculateNextMarketDates() {
-        const now = new Date();
-        const currentYear = now.getFullYear();
-        const currentMonth = now.getMonth();
-
-        // Market configurations
-        const markets = {
-          huccorgne: {
-            // 2nd and 4th Thursday of each month
-            pattern: 'biweekly-thursday',
-            weeks: [2, 4]
-          },
-          wanze: {
-            // Every Friday
-            pattern: 'weekly-friday'
-          },
-          villers: {
-            // 1st Thursday of month (April to September)
-            pattern: 'monthly-thursday',
-            week: 1,
-            months: [3, 4, 5, 6, 7, 8] // April (3) to September (8)
-          }
-        };
-
-        function getNextOccurrence(market) {
-          const { pattern, weeks, week, months } = markets[market];
-          let nextDate = new Date(now);
-
-          // Look ahead up to 90 days
-          for (let i = 0; i < 90; i++) {
-            const checkDate = new Date(now.getTime() + (i * 24 * 60 * 60 * 1000));
-            const dayOfWeek = checkDate.getDay();
-            const dayOfMonth = checkDate.getDate();
-            const month = checkDate.getMonth();
-            
-            // Calculate which Thursday of the month (1st, 2nd, 3rd, 4th)
-            const firstDayOfMonth = new Date(checkDate.getFullYear(), month, 1);
-            const firstThursday = new Date(firstDayOfMonth);
-            const firstDayOfWeek = firstDayOfMonth.getDay();
-            const daysToFirstThursday = (4 - firstDayOfWeek + 7) % 7;
-            firstThursday.setDate(1 + daysToFirstThursday);
-            
-            const weekOfMonth = Math.floor((dayOfMonth - firstThursday.getDate()) / 7) + 1;
-
-            if (pattern === 'weekly-friday' && dayOfWeek === 5) {
-              // Every Friday - include today if it's Friday
-              if (checkDate.getTime() >= now.getTime()) {
-                return checkDate;
-              }
-            } else if (pattern === 'biweekly-thursday' && dayOfWeek === 4) {
-              // 2nd and 4th Thursday
-              if (weeks.includes(weekOfMonth) && checkDate.getTime() > now.getTime()) {
-                return checkDate;
-              }
-            } else if (pattern === 'monthly-thursday' && dayOfWeek === 4) {
-              // 1st Thursday of month (April to September only)
-              if (weekOfMonth === week && months.includes(month) && checkDate.getTime() > now.getTime()) {
-                return checkDate;
-              }
-            }
-          }
-          return null;
-        }
-
-        function formatDate(date) {
-          if (!date) return "Pas de prochaine date";
-
-          const options = {
-            weekday: 'long',
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-          };
-          const formatted = date.toLocaleDateString('fr-FR', options);
-
-          // Compare dates by date only (ignore time)
-          const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-          const marketDate = new Date(date.getFullYear(), date.getMonth(), date.getDate());
-          
-          const daysUntil = Math.ceil((marketDate.getTime() - today.getTime()) / (24 * 60 * 60 * 1000));
-
-          if (daysUntil === 0) {
-            return `Aujourd'hui - ${formatted}`;
-          } else if (daysUntil === 1) {
-            return `Demain - ${formatted}`;
-          } else if (daysUntil <= 7) {
-            return `Dans ${daysUntil} jours - ${formatted}`;
-          } else {
-            return `Prochaine date: ${formatted}`;
-          }
-        }
-
-        // Update each market card
-        Object.keys(markets).forEach(marketKey => {
-          const nextDate = getNextOccurrence(marketKey);
-          const element = document.querySelector(`[data-market="${marketKey}"]`);
-          console.log(`Market ${marketKey}:`, nextDate, element);
-          if (element) {
-            element.textContent = formatDate(nextDate);
-            console.log(`Updated ${marketKey} with:`, formatDate(nextDate));
-          } else {
-            console.log(`Element not found for ${marketKey}`);
-          }
-        });
-      }
-
-      // Calculate on page load
-      document.addEventListener('DOMContentLoaded', () => {
-        console.log('Market dates calculation starting...');
-        calculateNextMarketDates();
-        console.log('Market dates calculation completed');
-      });
-
-      // Mobile Menu Accessibility
       document.addEventListener('DOMContentLoaded', function() {
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');

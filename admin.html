@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Admin - Terre & Ciel Maraichage</title>
+  <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div id="app">
+    <!-- Login Screen -->
+    <div id="login-screen" class="login-screen">
+      <div class="login-box">
+        <img src="./img/logo.png" alt="Terre & Ciel Maraichage" class="login-logo" />
+        <h1>Administration</h1>
+        <form id="login-form">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required autocomplete="email" />
+          </div>
+          <div class="form-group">
+            <label for="password">Mot de passe</label>
+            <input type="password" id="password" name="password" required autocomplete="current-password" />
+          </div>
+          <button type="submit" class="btn-primary">Connexion</button>
+          <p id="login-error" class="error-message"></p>
+        </form>
+      </div>
+    </div>
+
+    <!-- Admin Panel -->
+    <div id="admin-panel" class="admin-panel hidden">
+      <header class="admin-header">
+        <div class="header-content">
+          <img src="./img/logo-text.png" alt="Terre & Ciel Maraichage" class="header-logo" />
+          <h1>Backoffice</h1>
+        </div>
+        <button id="logout-btn" class="btn-secondary">Deconnexion</button>
+      </header>
+
+      <nav class="admin-nav">
+        <button class="nav-tab active" data-tab="markets">Marches</button>
+        <button class="nav-tab" data-tab="gallery">Galerie</button>
+        <button class="nav-tab" data-tab="content">Contenu</button>
+      </nav>
+
+      <main class="admin-main">
+        <!-- Markets Tab -->
+        <section id="markets-tab" class="tab-content active">
+          <div class="section-header">
+            <h2>Gestion des marchés</h2>
+            <p>Gérez les textes de la section, les marchés et leurs paramètres.</p>
+          </div>
+
+          <div id="markets-list" class="markets-list">
+            <!-- Markets will be rendered here -->
+          </div>
+        </section>
+
+        <!-- Gallery Tab -->
+        <section id="gallery-tab" class="tab-content hidden">
+          <div class="section-header">
+            <h2>Gestion de la galerie</h2>
+            <p>Selectionnez les images a afficher et reorganisez-les par glisser-deposer.</p>
+          </div>
+
+          <div class="upload-section">
+            <label for="image-upload" class="upload-label">
+              <span class="upload-icon">+</span>
+              <span>Ajouter des images</span>
+            </label>
+            <input type="file" id="image-upload" accept="image/*" multiple hidden />
+            <span id="upload-progress" class="upload-progress"></span>
+          </div>
+
+          <div id="gallery-list" class="gallery-list">
+            <!-- Gallery items will be rendered here -->
+          </div>
+        </section>
+
+        <!-- Content Tab -->
+        <section id="content-tab" class="tab-content hidden">
+          <div class="section-header">
+            <h2>Gestion du contenu</h2>
+            <p>Modifiez les textes et informations du site.</p>
+          </div>
+
+          <div id="content-editor" class="content-editor">
+            <!-- Content forms will be rendered here -->
+          </div>
+        </section>
+      </main>
+
+      <footer class="admin-footer">
+        <div class="footer-actions">
+          <span id="save-status" class="save-status"></span>
+          <span class="last-updated" id="last-updated"></span>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <script type="module" src="/src/admin.ts"></script>
+</body>
+</html>

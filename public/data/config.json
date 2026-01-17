@@ -1,0 +1,39 @@
+{
+  "marketSection": {
+    "title": "Point de vente",
+    "description": "Venez nous retrouver chaque vendredi au marché de Wanze pour découvrir nos légumes biologiques et fruits de saison cultivés à Antheit."
+  },
+  "markets": {
+    "wanze": {
+      "enabled": true,
+      "name": "Marché de Wanze",
+      "day": "friday",
+      "pattern": "weekly",
+      "hours": "14:00-19:00",
+      "location": "Place Faniel de Wanze",
+      "closedDates": []
+    },
+    "huccorgne": {
+      "enabled": false,
+      "name": "Marché de Huccorgne",
+      "day": "thursday",
+      "pattern": "biweekly",
+      "weeks": [2, 4],
+      "hours": "16:00-19:00",
+      "location": "Huccorgne",
+      "closedDates": []
+    },
+    "villers": {
+      "enabled": false,
+      "name": "Marché de Villers-le-Bouillet",
+      "day": "thursday",
+      "pattern": "monthly",
+      "week": 1,
+      "months": [4, 5, 6, 7, 8, 9],
+      "hours": "16:00-19:00",
+      "location": "Villers-le-Bouillet",
+      "closedDates": []
+    }
+  },
+  "lastUpdated": "2025-01-17"
+}
