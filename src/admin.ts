@@ -568,15 +568,47 @@ class AdminPanel {
   }
 
   private showSaveStatus(message: string, isError = false): void {
-    const statusElement = document.getElementById('save-status')
-    if (statusElement) {
-      statusElement.textContent = message
-      statusElement.className = `save-status ${isError ? 'error' : 'success'}`
-      setTimeout(() => {
-        statusElement.textContent = ''
-        statusElement.className = 'save-status'
-      }, 3000)
+    this.showToast(message, isError ? 'error' : 'success')
+  }
+
+  private showToast(message: string, type: 'success' | 'error' | 'info' = 'success'): void {
+    // Create container if it doesn't exist
+    let container = document.querySelector('.toast-container')
+    if (!container) {
+      container = document.createElement('div')
+      container.className = 'toast-container'
+      document.body.appendChild(container)
     }
+
+    // Create toast element
+    const toast = document.createElement('div')
+    toast.className = `toast ${type}`
+
+    // Icon based on type
+    const icons: Record<string, string> = {
+      success: `<svg class="toast-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+      </svg>`,
+      error: `<svg class="toast-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10" />
+        <path stroke-linecap="round" d="M15 9l-6 6M9 9l6 6" />
+      </svg>`,
+      info: `<svg class="toast-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10" />
+        <path stroke-linecap="round" d="M12 16v-4M12 8h.01" />
+      </svg>`
+    }
+
+    toast.innerHTML = `${icons[type]}<span>${message}</span>`
+    container.appendChild(toast)
+
+    // Remove toast after delay
+    setTimeout(() => {
+      toast.classList.add('toast-out')
+      setTimeout(() => {
+        toast.remove()
+      }, 300)
+    }, 3000)
   }
 
   private updateLastUpdated(): void {
@@ -772,7 +804,7 @@ class AdminPanel {
             <div class="closed-dates-list" data-market="${key}">
               ${(market.closedDates || []).map(date => `
                 <span class="closed-date">
-                  ${date}
+                  ${this.formatDateDisplay(date)}
                   <button data-action="remove-date" data-market="${key}" data-date="${date}">&times;</button>
                 </span>
               `).join('')}
@@ -1093,6 +1125,16 @@ class AdminPanel {
     const div = document.createElement('div')
     div.textContent = text
     return div.innerHTML
+  }
+
+  private formatDateDisplay(dateStr: string): string {
+    // Convert yyyy-mm-dd to dd-mm-yyyy for display
+    if (!dateStr) return ''
+    const parts = dateStr.split('-')
+    if (parts.length === 3) {
+      return `${parts[2]}-${parts[1]}-${parts[0]}`
+    }
+    return dateStr
   }
 
   private renderContent(): void {
