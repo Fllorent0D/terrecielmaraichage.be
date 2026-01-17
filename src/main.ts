@@ -7,6 +7,15 @@ import { Gallery } from './components/Gallery'
 import { MarketDates } from './components/MarketDates'
 import { ContentLoader } from './components/ContentLoader'
 import { createIcons, Leaf, Apple, HeartHandshake, AreaChart, Users, MapPin, Clock } from 'lucide'
+import { initializeApp } from 'firebase/app'
+import { getAnalytics } from 'firebase/analytics'
+import { firebaseConfig, FIREBASE_ENABLED } from './firebase-config'
+
+// Initialize Firebase Analytics
+if (FIREBASE_ENABLED) {
+  const app = initializeApp(firebaseConfig)
+  getAnalytics(app)
+}
 
 // Initialize components
 document.addEventListener('DOMContentLoaded', () => {
