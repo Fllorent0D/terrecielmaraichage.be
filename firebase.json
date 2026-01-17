@@ -37,6 +37,7 @@
     "rules": "database.rules.json"
   },
   "storage": {
-    "rules": "storage.rules"
+    "rules": "storage.rules",
+    "bucket": "terre-et-ciel-maraichage.firebasestorage.app"
   }
 }

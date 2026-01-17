@@ -3,49 +3,31 @@ rules_version = '2';
 service firebase.storage {
   match /b/{bucket}/o {
 
-    // Helper function to check if user is admin
-    function isAdmin() {
-      return request.auth != null
-             && firestore.exists(/databases/(default)/documents/admins/$(request.auth.uid));
-    }
-
-    // Alternative: Check admin status via custom claims (more secure)
-    function isAdminClaim() {
-      return request.auth != null && request.auth.token.admin == true;
-    }
-
     // Validate image upload
     function isValidImage() {
-      return request.resource.size < 10 * 1024 * 1024  // Max 10MB
-             && request.resource.contentType.matches('image/(jpeg|png|gif|webp|svg\\+xml)')
-             && request.resource.name.size() < 200;  // Filename length limit
+      return request.resource.size < 10 * 1024 * 1024
+             && request.resource.contentType.matches('image/(jpeg|png|gif|webp|svg\\+xml)');
     }
 
-    // Gallery images - public read, admin write only
+    // Gallery images - public read, authenticated write
     match /gallery/{fileName} {
       allow read: if true;
-      allow create: if request.auth != null && isValidImage();
-      allow update: if request.auth != null && isValidImage();
-      allow delete: if request.auth != null;
+      allow write: if request.auth != null && isValidImage();
     }
 
-    // Section images (parallax, founder, etc.) - public read, admin write only
+    // Section images - public read, authenticated write
     match /section-images/{fileName} {
       allow read: if true;
-      allow create: if request.auth != null && isValidImage();
-      allow update: if request.auth != null && isValidImage();
-      allow delete: if request.auth != null;
+      allow write: if request.auth != null && isValidImage();
     }
 
-    // Slider images - public read, admin write only
+    // Slider images - public read, authenticated write
     match /sliders/{fileName} {
       allow read: if true;
-      allow create: if request.auth != null && isValidImage();
-      allow update: if request.auth != null && isValidImage();
-      allow delete: if request.auth != null;
+      allow write: if request.auth != null && isValidImage();
     }
 
-    // Deny access to everything else by default
+    // Deny everything else
     match /{allPaths=**} {
       allow read, write: if false;
     }
